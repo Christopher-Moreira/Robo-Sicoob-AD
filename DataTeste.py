@@ -28,8 +28,9 @@ def DataReduzidaDiasEspecificos(data_teste=None):
     return data_reduzida.strftime("%d/%m/%Y")
 
 if __name__ == "__main__":
-   
-    data_teste = "11/02/2025"
+
+    data_atual = DataAtual()
+    data_teste = data_atual
 
     
     data_especifica = DataReduzidaDiasEspecificos(data_teste)
