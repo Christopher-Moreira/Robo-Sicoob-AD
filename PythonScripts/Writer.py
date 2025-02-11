@@ -19,13 +19,15 @@ if __name__ == "__main__":
 
 
 try:
-    while True:
+  while True:
+        #Click Chrome
         pyautogui.moveTo(215, 1049)
         pyautogui.click()
 
         time.sleep(1)
         
-        pyautogui.moveTo(267, 180)
+        #Click Button
+        pyautogui.moveTo(480, 180)
         pyautogui.click()
 
         pyautogui.write(resultado, interval=0)
