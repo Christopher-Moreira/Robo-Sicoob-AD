@@ -1,5 +1,8 @@
 import pyautogui
 import time
+from Datas import DataHoje
+from Datas import DataReduzidaFinsDeSemana
+
 
 def acao(x, y, delay=1):
     time.sleep(delay)
@@ -65,3 +68,4 @@ acao(1187, 732, 1)
 
 # Fechar o Conta Corrente
 acao(1886, 11, 1)
+
