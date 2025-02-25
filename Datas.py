@@ -21,11 +21,40 @@ feriados = [
     "31/12/2025",  # Véspera de Ano Novo (ponto facultativo após as 13h)
 ]
 
+def obter_hora_atual():
+    agora = datetime.now()
+    return agora.strftime("%H:%M:%S do dia %d/%m/%Y")
 
 def DataHoje():
 
     DataHoje = datetime.now()
     return DataHoje.strftime("%d/%m/%Y")
+
+def DatahojeComTraco():
+       DataHoje = datetime.now()
+       return DataHoje.strftime("%d-%m-%Y")
+
+def DataHojeMenosUm():
+    data_atual = datetime.now()
+    dia_da_semana = data_atual.weekday() 
+
+    #Segunda
+    if dia_da_semana == 0:  
+        data_reduzida = data_atual - timedelta(days=4)
+        #Terça
+    elif dia_da_semana == 1:  
+        data_reduzida = data_atual - timedelta(days=3)
+            #Else
+    else:  
+        data_reduzida = data_atual - timedelta(days=2)  
+
+    return data_reduzida.strftime("%d/%m/%Y")
+
+def DataHojeMenusDois():
+    DataHojeMenosDois = datetime.now()
+    DataFormatada = DataHojeMenosDois - timedelta(days  = 2)
+
+    return DataFormatada.strftime("%d/%m/%Y")
 
 def DataReduzidaFinsDeSemana():
 
@@ -41,3 +70,20 @@ def DataReduzidaFinsDeSemana():
 
     return data_reduzida.strftime("%d/%m/%Y")
 
+def DataMenosSeis():
+    data_atual = datetime.now()
+    DataMenosSeis = data_atual - timedelta(days = 6)
+
+    return DataMenosSeis.strftime("%d/%m/%Y")    
+
+
+if __name__ == "__main__":
+    data = DataHoje()
+    data_reduzida = DataHojeMenosUm()
+    data_especifica = DataReduzidaFinsDeSemana()
+    data_seis = DataMenosSeis()
+
+    print("Data atual:", data)
+    print("Data reduzida em 2 dias:", data_reduzida)
+    print("Data reduzida conforme dia da semana:", data_especifica)
+    print("Data Seis:", data_seis)
