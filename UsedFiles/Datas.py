@@ -74,7 +74,8 @@ def DataMenosSeis():
     data_atual = datetime.now()
     DataMenosSeis = data_atual - timedelta(days = 6)
 
-    return DataMenosSeis.strftime("%d/%m/%Y")    
+    return DataMenosSeis.strftime("%d/%m/%Y") 
+
 
 
 if __name__ == "__main__":

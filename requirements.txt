@@ -1,0 +1,6 @@
+pip install 
+
+pyperclip
+pyautogui
+mysql-connector-python
+schedule

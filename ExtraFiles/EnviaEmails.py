@@ -1,3 +1,5 @@
+#Teste para enviar os emails via solicitação
+
 import smtplib
 import time
 from datetime import datetime
