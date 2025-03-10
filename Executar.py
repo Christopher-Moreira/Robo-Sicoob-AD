@@ -387,6 +387,10 @@ def executar_script():
 
     #clica para baixo para selecionar celula de baixo
     pyautogui.hotkey('Down')
+    time.sleep(3)
+
+    pyautogui.hotkey('Right')
+    time.sleep(2)
 
     #escreve data de referencia (Data reduzida de acordo com o dia da semana)
     pyperclip.copy(dataFinsDeSemana)
@@ -510,7 +514,7 @@ def executar_script():
 
     acao(454, 378, 2)
     time.sleep(3)
-    pyperclip.copy(f"Confirmado, AD publicado às {hora} do dia {dataHoje} , sem erros registrados.")
+    pyperclip.copy("Confirmado, AD publicado às {hora} do dia {dataHoje}, sem erros registrados.")
     pyautogui.hotkey('ctrl', 'v')
     #pyautogui.write("teste, taxa de erro atual 1 para 5")
 
@@ -520,7 +524,7 @@ def executar_script():
 
     acao(78, 296, 3)
 
-schedule.every().day.at("11:31").do(executar_script)
+schedule.every().day.at("08:11").do(executar_script)
 
 while True:
     schedule.run_pending()

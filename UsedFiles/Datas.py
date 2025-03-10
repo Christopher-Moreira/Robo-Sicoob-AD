@@ -61,10 +61,13 @@ def DataReduzidaFinsDeSemana():
     data_atual = datetime.now()
     dia_da_semana = data_atual.weekday() 
 
+    #Segunda
     if dia_da_semana == 0:  
-        data_reduzida = data_atual - timedelta(days=3)
-    elif dia_da_semana == 1:  
         data_reduzida = data_atual - timedelta(days=4)
+        #Terça
+    elif dia_da_semana == 1:  
+        data_reduzida = data_atual - timedelta(days=3)
+            #Else
     else:  
         data_reduzida = data_atual - timedelta(days=2)  
 
@@ -83,8 +86,10 @@ if __name__ == "__main__":
     data_reduzida = DataHojeMenosUm()
     data_especifica = DataReduzidaFinsDeSemana()
     data_seis = DataMenosSeis()
+    data_fds  = DataReduzidaFinsDeSemana()
 
     print("Data atual:", data)
     print("Data reduzida em 2 dias:", data_reduzida)
     print("Data reduzida conforme dia da semana:", data_especifica)
     print("Data Seis:", data_seis)
+    print("Data Hoje menos Seis:", data_fds)
