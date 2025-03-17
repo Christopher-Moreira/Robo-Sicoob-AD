@@ -23,7 +23,7 @@ feriados = [
 
 def obter_hora_atual():
     agora = datetime.now()
-    return agora.strftime("%H:%M:%S do dia %d/%m/%Y")
+    return agora.strftime("%H:%M:%S")
 
 def DataHoje():
 
@@ -64,9 +64,10 @@ def DataReduzidaFinsDeSemana():
     #Segunda
     if dia_da_semana == 0:  
         data_reduzida = data_atual - timedelta(days=4)
+
         #Terça
     elif dia_da_semana == 1:  
-        data_reduzida = data_atual - timedelta(days=3)
+        data_reduzida = data_atual - timedelta(days=4)
             #Else
     else:  
         data_reduzida = data_atual - timedelta(days=2)  
