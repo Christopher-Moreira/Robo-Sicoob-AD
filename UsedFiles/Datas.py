@@ -18,7 +18,7 @@ feriados = [
     "20/11/2025",  # Dia da Consciência Negra
     "24/12/2025",  # Véspera de Natal (ponto facultativo após as 13h)
     "25/12/2025",  # Natal
-    "31/12/2025",  # Véspera de Ano Novo (ponto facultativo após as 13h)
+    "31/12/2025",  # Véspera de Ano Novo (ponto facultativo após as 13h) ##Verificar
 ]
 
 def obter_hora_atual():

@@ -517,7 +517,7 @@ def executar_script():
     time.sleep(3)
     pyperclip.copy(f"Confirmado, AD publicado às {hora} do dia {dataHoje}, sem erros registrados.")
     pyautogui.hotkey('ctrl', 'v')
-    #pyautogui.write("teste, taxa de erro atual 1 para 5")
+    #pyautogui.write("Debugando")
 
     acao(1781, 308, 2)
 
