@@ -4,7 +4,7 @@ Este projeto visa automatizar diversas tarefas utilizando um bot. Abaixo está a
 
 ## Estrutura de Pastas
 
-- **imagens**: Esta pasta contém as imagens tiradas pelo bot.
+- **imagens**: Esta pasta contém as imagens que deverão ser reconhecidas pelo Bot.
 - **RequestsDB**: Esta pasta contém os arquivos que puxam a requisição da base de dados.
 - **SCRIPTS**: Esta pasta contém os scripts de teste do sistema.
 - **WebServices**: Esta pasta conterá o futuro sistema de inserção de usuários do bot.
