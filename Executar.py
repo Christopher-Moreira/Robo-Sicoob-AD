@@ -298,7 +298,7 @@ def executar_script():
     time.sleep(5)
 
     #Clica no AD
-    pyautogui.moveTo(403,216)
+    acao(403,216,5)
     pyautogui.doubleClick()
 
     time.sleep(2)
@@ -389,15 +389,20 @@ def executar_script():
     pyautogui.hotkey('Down')
     time.sleep(3)
 
-    pyautogui.hotkey('Right')
+    pyautogui.hotkey('Left')
     time.sleep(2)
+
+    
 
     #escreve data de referencia (Data reduzida de acordo com o dia da semana)
     pyperclip.copy(dataFinsDeSemana)
     pyautogui.hotkey('ctrl', 'v')
 
+    pyautogui.hotkey('Right')
+    time.sleep(2)
+
     #vai para celula do lado
-    pyautogui.hotkey('Left')
+   
 
     #escreve data de hoje
     pyperclip.copy(dataHoje)
@@ -525,7 +530,7 @@ def executar_script():
 
     acao(78, 296, 3)
 
-schedule.every().day.at("08:12").do(executar_script)
+schedule.every().day.at("08:58").do(executar_script)
 
 while True:
     schedule.run_pending()
