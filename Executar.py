@@ -2,29 +2,26 @@ import pyautogui
 import pyperclip
 import schedule
 import time
-from UsedFiles.Datas import DataHoje, DataReduzidaFinsDeSemana, DataHojeMenosUm, DataHojeMenusDois, DataMenosSeis, DatahojeComTraco, obter_hora_atual
-from UsedFiles.RequestsDB.getLogin import LoginPuxa
-from UsedFiles.RequestsDB.getSenha import SenhaPuxa
+from UsedFiles.GetDatas import DataHoje, DataReduzidaFinsDeSemana, DataHojeMenosUm, DataHojeMenusDois, DataMenosSeis, DatahojeComTraco, obter_hora_atual
+from UsedFiles.RequestsDB.GetLogin import LoginPuxa
+from UsedFiles.RequestsDB.GetSenha import SenhaPuxa
+from UsedFiles.ErrorReg.GetError import NoErrorPath, ErrorRename
  
 
-
 ############################## Declaração das variaveis ############################## 
+
 login = LoginPuxa()
 senha = SenhaPuxa()
 
 hora = obter_hora_atual()
-
 dataFinsDeSemana = DataReduzidaFinsDeSemana()
-
 dataHoje = DataHoje()
-
 dataMenusUm = DataHojeMenosUm()
-
 dataHojeMenusDois = DataHojeMenusDois()
-
 dataSeisDias = DataMenosSeis()
-
 DataTraco = DatahojeComTraco()
+
+
 
 
 ########### Instancia a função de ação ###########
@@ -327,210 +324,388 @@ def executar_script():
     pyautogui.write(DataTraco)
     pyautogui.press('enter')
 
-    #volta para o AD 
-    time.sleep(2)
-    acao(1194,69,2)
-
-    time.sleep(3)   
-
-    #CONSOLIDADO
-    pyautogui.moveTo(318, 363)
-    time.sleep(3)
-    pyautogui.doubleClick()
-
-    #SCROLLDOWN
-    time.sleep(3)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-
-
-    #Renomeia
-    pyautogui.moveTo(308, 973)
+    ################# Erro Rename 1
     time.sleep(5)
-    pyautogui.click()
-    pyautogui.press('f2')
-    pyautogui.write(DataTraco)
-    pyautogui.press('enter')
+    if ErrorRename():
+            
+        acao(144,1050,2)
+
+        #clica no novo
+        acao(166,131,2)
+
+        #clica na barra
+        acao(429,218,2)
+
+        #enter
+        time.sleep(3)
+        pyautogui.write("ti5166@sicoob.com.br")
+        pyautogui.press('enter')
+        time.sleep(2)
+        pyautogui.hotkey('space')
+
+        time.sleep(3)
+
+       # pyautogui.write('gerentes5166@sicoob.com.br')
+        time.sleep(2)
+        pyautogui.press('enter')
+
+        #clica em assunto
+        acao(550, 320, 2)
+        time.sleep(3)
+        pyautogui.write("ERRO AD - AD-> File Already Exists")
+
+        acao(454, 378, 2)
+        time.sleep(3)
+        #pyperclip.copy(f"Confirmado, AD publicado às {hora} do dia {dataHoje}, sem erros registrados.")
+        #pyautogui.hotkey('ctrl', 'v')
+        pyperclip.copy(f"File Already Exists: Erro durante a geração do AD:\n-O arquivo não pode ser renomeado porque já existe um arquivo com o mesmo nome;\n-File Path: R:\T.I\Relatorios BI\Arquivos de Origem\AD\AD\n-File Name:'{dataHoje}'\n-{dataHoje} - {hora}.")
+        pyautogui.hotkey('ctrl', 'v')
+        
+        acao(1781, 308, 2)
+
+        acao(1745, 456, 2)
+
+        acao(78, 296, 3)
+
+    else:
+        time.sleep(10)
+        #volta para o AD 
+        time.sleep(2)
+        acao(1194,69,2)
+
+        time.sleep(3)   
+
+        #CONSOLIDADO
+        pyautogui.moveTo(318, 363)
+        time.sleep(3)
+        pyautogui.doubleClick()
+
+        #SCROLLDOWN
+        time.sleep(3)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
 
 
-    #volta para o AD
-    time.sleep(2)
-    acao(1051,72,3)
+        #Renomeia
+        pyautogui.moveTo(308, 973)
+        time.sleep(5)
+        pyautogui.click()
+        pyautogui.press('f2')
+        pyautogui.write(DataTraco)
+        pyautogui.press('enter')
+
+        time.sleep(5)
+    ############### Erro Rename 2
+    if ErrorRename():
+            
+        acao(144,1050,2)
+
+        #clica no novo
+        acao(166,131,2)
+
+        #clica na barra
+        acao(429,218,2)
+
+        #enter
+        time.sleep(3)
+        pyautogui.write("ti5166@sicoob.com.br")
+        pyautogui.press('enter')
+        time.sleep(2)
+        pyautogui.hotkey('space')
+
+        time.sleep(3)
+
+       # pyautogui.write('gerentes5166@sicoob.com.br')
+        time.sleep(2)
+        pyautogui.press('enter')
+
+        #clica em assunto
+        acao(550, 320, 2)
+        time.sleep(3)
+        pyautogui.write("ERRO AD - CONSOLIDADO -> File Already Exists")
+
+        acao(454, 378, 2)
+        time.sleep(3)
+        #pyperclip.copy(f"Confirmado, AD publicado às {hora} do dia {dataHoje}, sem erros registrados.")
+        #pyautogui.hotkey('ctrl', 'v')
+        pyperclip.copy(f"File Already Exists: Erro durante a geração do AD:\n-O arquivo não pode ser renomeado porque já existe um arquivo com o mesmo nome.\n-File Path: R:\T.I\Relatorios BI\Arquivos de Origem\AD\CONSOLIDADO\n-File Name:'{dataHoje}'\n-{dataHoje} - {hora}.")
+        pyautogui.hotkey('ctrl', 'v')
+        
+        acao(1781, 308, 2)
+
+        acao(1745, 456, 2)
+
+        acao(78, 296, 3)
+        
+    else:
+
+        #volta para o AD
+        time.sleep(2)
+        acao(1051,72,3)
 
 
 
-    #########################Processo de abrir e editar o arquivo Excel#########################
+        #########################Processo de abrir e editar o arquivo Excel#########################
 
-    time.sleep(5)
-    #data referencia
-    pyautogui.moveTo(503,397)
+        time.sleep(5)
+        #data referencia
+        pyautogui.moveTo(503,397)
 
-    #clica na pasta
-    time.sleep(2)
-    pyautogui.doubleClick()
+        #clica na pasta
+        time.sleep(2)
+        pyautogui.doubleClick()
 
-    #vai ate o Excel
-    time.sleep(2)
-    pyautogui.moveTo(457,215)
+        #vai ate o Excel
+        time.sleep(2)
+        pyautogui.moveTo(457,215)
 
-    #abre o Excel
-    pyautogui.doubleClick()
+        #abre o Excel
+        pyautogui.doubleClick()
 
-    #espera o Excel abrir
-    time.sleep(30)
+        #espera o Excel abrir
+        time.sleep(30)
 
-    #clica para baixo para selecionar celula de baixo
-    pyautogui.hotkey('Down')
-    time.sleep(3)
+        #clica para baixo para selecionar celula de baixo
+        pyautogui.hotkey('Down')
+        time.sleep(3)
 
-    pyautogui.hotkey('Left')
-    time.sleep(2)
+        pyautogui.hotkey('Left')
+        time.sleep(2)
+
+        pyautogui.hotkey('Left')
+        time.sleep(2)
+        
+
+        #escreve data de referencia (Data reduzida de acordo com o dia da semana)
+        pyperclip.copy(dataHoje)
+        pyautogui.hotkey('ctrl', 'v')
+
+        #vai para celula do lado
+        pyautogui.hotkey('Right')
+        time.sleep(2)
 
     
+        #escreve data de hoje
+        pyperclip.copy(dataFinsDeSemana)
+        pyautogui.hotkey('ctrl', 'v')
 
-    #escreve data de referencia (Data reduzida de acordo com o dia da semana)
-    pyperclip.copy(dataFinsDeSemana)
-    pyautogui.hotkey('ctrl', 'v')
+        #Fecha o Excel
+        time.sleep(3)
+        acao(1889,26,2)
 
-    pyautogui.hotkey('Right')
-    time.sleep(2)
+        #Salva
+        acao(937,918,2)
+        time.sleep(20)
 
-    #vai para celula do lado
-   
+        #volta arquvios origem
+        acao(910,70,5)
 
-    #escreve data de hoje
-    pyperclip.copy(dataHoje)
-    pyautogui.hotkey('ctrl', 'v')
+        #Vai ate cobrança
+        pyautogui.moveTo(332,287)
+        pyautogui.doubleClick()
 
-    #Fecha o Excel
-    time.sleep(3)
-    acao(1889,26,2)
+        #Cobrança
+        time.sleep(3)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
 
-    #Salva
-    acao(937,918,2)
-    time.sleep(20)
+        #Renomeia
+        pyautogui.moveTo(308, 973)
+        time.sleep(5)
+        pyautogui.click()
+        pyautogui.press('f2')
+        pyautogui.write(DataTraco)
+        pyautogui.press('enter')
 
-    #volta arquvios origem
-    acao(910,70,5)
+        time.sleep(5)
 
-    #Vai ate cobrança
-    pyautogui.moveTo(332,287)
-    pyautogui.doubleClick()
+    ################ Erro Rename 3
+    if ErrorRename():
+            
+        acao(144,1050,2)
 
-    #Cobrança
-    time.sleep(3)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
+        #clica no novo
+        acao(166,131,2)
 
-    #Renomeia
-    pyautogui.moveTo(308, 973)
-    time.sleep(5)
-    pyautogui.click()
-    pyautogui.press('f2')
-    pyautogui.write(DataTraco)
-    pyautogui.press('enter')
+        #clica na barra
+        acao(429,218,2)
 
-    #volta #relatorios BI
-    acao(878,68,3)
+        #enter
+        time.sleep(3)
+        pyautogui.write("ti5166@sicoob.com.br")
+        pyautogui.press('enter')
+        time.sleep(2)
+        pyautogui.hotkey('space')
 
-    time.sleep(3)
+        time.sleep(3)
 
-    pyautogui.moveTo(329, 702)
+       # pyautogui.write('gerentes5166@sicoob.com.br')
+        time.sleep(2)
+        pyautogui.press('enter')
 
-    #ScrollDown
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
-    pyautogui.scroll(-3000)
+        #clica em assunto
+        acao(550, 320, 2)
+        time.sleep(3)
+        pyautogui.write("ERRO Cobrança -> File Already Exists")
 
-    #Clicar no AD BI
-    acao(368,707,2)
-    pyautogui.doubleClick()
+        acao(454, 378, 2)
+        time.sleep(3)
+        #pyperclip.copy(f"Confirmado, AD publicado às {hora} do dia {dataHoje}, sem erros registrados.")
+        #pyautogui.hotkey('ctrl', 'v')
+        pyperclip.copy(f"File Already Exists: Erro durante a geração do AD:\n-O arquivo não pode ser renomeado porque já existe um arquivo com o mesmo nome.\n-File Path: R:\T.I\Relatorios BI\Arquivos de Origem\Cobrança\n-File Name:'{dataHoje}'\n-{dataHoje} - {hora}.")
+        pyautogui.hotkey('ctrl', 'v')
+        
+        acao(1781, 308, 2)
 
-    time.sleep(40)
+        acao(1745, 456, 2)
 
-    #atualizar
-    acao(932,113,3)
+        acao(78, 296, 3)   
 
-    time.sleep(45)
+    else:
+        #volta #relatorios BI
+        acao(878,68,3)
 
-    #publicar
-    acao(1605,116,3)
+        time.sleep(3)
 
-    acao(1050, 573,2)
+        pyautogui.moveTo(329, 702)
 
-    time.sleep(25)
+        #ScrollDown
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
+        pyautogui.scroll(-3000)
 
-    #relatorios BI
-    acao(714, 495, 5)
-
-    #selecinar
-    acao(1112,737,5)
-
-    time.sleep(10)
-
-    #substituir
-    acao(1030,687,2)
-
-
-    time.sleep(30)
-
-    #salvar
-    acao(1185,693,2)
+        ##############################Clicar no AD BI######################################
 
 
-    ####### Mostrar que o AD foi Publicado (Futuro IF -mesclar com DetectCondition) #######
-        #clica no Outlook
-    acao(144,1050,2)
+        acao(368,707,2)
+        pyautogui.doubleClick()
 
-    #clica no novo
-    acao(166,131,2)
+        time.sleep(40)
 
-    #clica na barra
-    acao(429,218,2)
+        #atualizar
+        acao(932,113,3)
 
-    #enter
-    time.sleep(3)
-    pyautogui.write("ti5166@sicoob.com.br")
-    pyautogui.press('enter')
-    time.sleep(2)
-    pyautogui.hotkey('space')
+    ###############################Checa a conclusão do AD###############################
 
-    time.sleep(3)
+        if NoErrorPath():
+            time.sleep(45)
+            #publicar
+            acao(1605,116,3)
 
-    pyautogui.write('gerentes5166@sicoob.com.br')
-    time.sleep(2)
-    pyautogui.press('enter')
+            acao(1050, 573,2)
 
-    #clica em assunto
-    acao(550, 320, 2)
-    time.sleep(3)
-    pyautogui.write("Ad Publicado")
+            time.sleep(25)
 
-    acao(454, 378, 2)
-    time.sleep(3)
-    pyperclip.copy(f"Confirmado, AD publicado às {hora} do dia {dataHoje}, sem erros registrados.")
-    pyautogui.hotkey('ctrl', 'v')
-    #pyautogui.write("Debugando")
+            #relatorios BI
+            acao(714, 495, 5)
 
-    acao(1781, 308, 2)
+            #selecinar
+            acao(1112,737,5)
 
-    acao(1745, 456, 2)
+            time.sleep(10)
 
-    acao(78, 296, 3)
+            #substituir
+            acao(1030,687,2)
 
-schedule.every().day.at("08:58").do(executar_script)
+
+            time.sleep(30)
+
+            #salvar
+            acao(1185,693,2)
+
+
+            ####### Mostrar que o AD foi Publicado (Futuro IF -mesclar com DetectCondition) #######
+                #clica no Outlook
+            acao(144,1050,2)
+
+            #clica no novo
+            acao(166,131,2)
+
+            #clica na barra
+            acao(429,218,2)
+
+            #enter
+            time.sleep(3)
+            pyautogui.write("ti5166@sicoob.com.br")
+            pyautogui.press('enter')
+            time.sleep(2)
+            pyautogui.hotkey('space')
+
+            time.sleep(3)
+
+            pyautogui.write('gerentes5166@sicoob.com.br')
+            time.sleep(2)
+            pyautogui.press('enter')
+
+            #clica em assunto
+            acao(550, 320, 2)
+            time.sleep(3)
+            pyautogui.write("Ad Publicado")
+
+            acao(454, 378, 2)
+            time.sleep(3)
+            pyperclip.copy(f"Confirmado, AD publicado às {hora} do dia {dataHoje}, sem erros registrados.")
+            pyautogui.hotkey('ctrl', 'v')
+            #pyautogui.write("Sem Erro AutoMitigado")
+
+            acao(1781, 308, 2)
+
+            acao(1745, 456, 2)
+
+            acao(78, 296, 3)
+
+        else:
+            acao(144,1050,2)
+
+            #clica no novo
+            acao(166,131,2)
+
+            #clica na barra
+            acao(429,218,2)
+
+            #enter
+            time.sleep(3)
+            pyautogui.write("ti5166@sicoob.com.br")
+            pyautogui.press('enter')
+            time.sleep(2)
+            pyautogui.hotkey('space')
+
+            time.sleep(3)
+
+        # pyautogui.write('gerentes5166@sicoob.com.br')
+            time.sleep(2)
+            pyautogui.press('enter')
+
+            #clica em assunto
+            acao(550, 320, 2)
+            time.sleep(3)
+            pyautogui.write("AD Com Erro")
+
+            acao(454, 378, 2)
+            time.sleep(3)
+            #pyperclip.copy(f"Confirmado, AD publicado às {hora} do dia {dataHoje}, sem erros registrados.")
+            #pyautogui.hotkey('ctrl', 'v')
+            pyautogui.write("Erro")
+
+            acao(1781, 308, 2)
+
+            acao(1745, 456, 2)
+
+            acao(78, 296, 3)
+
+schedule.every().day.at("16:45").do(executar_script)
 
 while True:
     schedule.run_pending()
