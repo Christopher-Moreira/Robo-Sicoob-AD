@@ -724,7 +724,7 @@ def executar_script():
 
             acao(78, 296, 3)
 
-schedule.every().day.at("14:59").do(executar_script)
+schedule.every().day.at("14:53").do(executar_script)
 
 while True:
     schedule.run_pending()
