@@ -2,18 +2,17 @@ import pyautogui
 import pyperclip
 import schedule
 import time
-from UsedFiles.GetDatas import DataHoje, DataReduzidaFinsDeSemana, DataHojeMenosUm, DataHojeMenusDois, DataMenosSeis, DatahojeComTraco, obter_hora_atual
+import os
+from UsedFiles.GetDatas import DataHoje, DataReduzidaFinsDeSemana, DataHojeMenosUm, DataHojeMenusDois, DataMenosSeis, DatahojeComTraco, Obter_hora_atual,Hora_atual_com_traco
 from UsedFiles.RequestsDB.GetLogin import LoginPuxa
 from UsedFiles.RequestsDB.GetSenha import SenhaPuxa
-from UsedFiles.ErrorReg.GetError import NoErrorPath, ErrorRename
+from UsedFiles.ErrorReg.GetError import NoErrorPath, ErrorRename, ErrorAtualizar_ADcsv
  
-
-############################## Declaração das variaveis ############################## 
-
 login = LoginPuxa()
 senha = SenhaPuxa()
 
-hora = obter_hora_atual()
+hora = Obter_hora_atual()
+horatraco = Hora_atual_com_traco()
 dataFinsDeSemana = DataReduzidaFinsDeSemana()
 dataHoje = DataHoje()
 dataMenusUm = DataHojeMenosUm()
@@ -21,7 +20,8 @@ dataHojeMenusDois = DataHojeMenusDois()
 dataSeisDias = DataMenosSeis()
 DataTraco = DatahojeComTraco()
 
-
+dir = "Images/Screenshots"
+path = os.path.join(dir, f"Dia {DataTraco}  Hora {horatraco}.png")
 
 
 ########### Instancia a função de ação ###########
@@ -327,7 +327,11 @@ def executar_script():
     ################# Erro Rename 1
     time.sleep(5)
     if ErrorRename():
-            
+    
+        screenshot = pyautogui.screenshot()
+        screenshot.save(path)
+
+        time.sleep(5)       
         acao(144,1050,2)
 
         #clica no novo
@@ -360,6 +364,21 @@ def executar_script():
         #pyautogui.hotkey('ctrl', 'v')
         pyperclip.copy(f"File Already Exists: Erro durante a geração do AD:\n-O arquivo não pode ser renomeado porque já existe um arquivo com o mesmo nome;\n-File Path: R:\T.I\Relatorios BI\Arquivos de Origem\AD\AD\n-File Name:'{dataHoje}'\n-{dataHoje} - {hora}.")
         pyautogui.hotkey('ctrl', 'v')
+
+        #anexa print
+        acao(1028,127,2)
+        time.sleep(3)
+        acao(1160,922,2)
+
+        acao(549, 69, 2)
+        pyperclip.copy('\Desktop\ScriptDias\Images\Screenshots')
+        pyautogui.hotkey('ctrl','v')
+        time.sleep(3)
+        acao(485, 270,2)
+        pyautogui.press('end')
+        time.sleep(3)
+        pyautogui.press('enter')
+
         
         acao(1781, 308, 2)
 
@@ -705,7 +724,7 @@ def executar_script():
 
             acao(78, 296, 3)
 
-schedule.every().day.at("16:45").do(executar_script)
+schedule.every().day.at("14:59").do(executar_script)
 
 while True:
     schedule.run_pending()
