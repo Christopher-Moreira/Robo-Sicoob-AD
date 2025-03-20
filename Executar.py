@@ -3,7 +3,7 @@ import pyperclip
 import schedule
 import time
 import os
-from UsedFiles.GetDatas import DataHoje, DataReduzidaFinsDeSemana, DataHojeMenosUm, DataHojeMenusDois, DataMenosSeis, DatahojeComTraco, Obter_hora_atual,Hora_atual_com_traco
+from UsedFiles.DataAndTimeRequest.GetDatas import DataHoje, DataReduzidaFinsDeSemana, DataHojeMenosUm, DataHojeMenusDois, DataMenosSeis, DatahojeComTraco, Obter_hora_atual,Hora_atual_com_traco
 from UsedFiles.RequestsDB.GetLogin import LoginPuxa
 from UsedFiles.RequestsDB.GetSenha import SenhaPuxa
 from UsedFiles.ErrorReg.GetError import NoErrorPath, ErrorRename, ErrorAtualizar_ADcsv
