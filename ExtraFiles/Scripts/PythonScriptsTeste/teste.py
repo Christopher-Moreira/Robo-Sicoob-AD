@@ -1,7 +1,7 @@
 import pyautogui
 import pyperclip
 import time
-from UsedFiles.Datas import DataHoje, DataReduzidaFinsDeSemana, DataHojeMenosUm, DataHojeMenusDois, DataMenosSeis, DatahojeComTraco, obter_hora_atual
+from UsedFiles.GetDatas import DataHoje, DataReduzidaFinsDeSemana, DataHojeMenosUm, DataHojeMenusDois, DataMenosSeis, DatahojeComTraco, obter_hora_atual
 from UsedFiles.RequestsDB.getLogin import LoginPuxa
 from UsedFiles.RequestsDB.getSenha import SenhaPuxa
  
