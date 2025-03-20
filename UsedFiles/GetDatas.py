@@ -21,12 +21,15 @@ feriados = [
     "31/12/2025",  # Véspera de Ano Novo (ponto facultativo após as 13h) ##Verificar
 ]
 
-def obter_hora_atual():
+def Obter_hora_atual():
     agora = datetime.now()
     return agora.strftime("%H:%M:%S")
 
-def DataHoje():
+def Hora_atual_com_traco():
+    agoraTraco = datetime.now()
+    return agoraTraco.strftime("%H-%M-%S")
 
+def DataHoje():
     DataHoje = datetime.now()
     return DataHoje.strftime("%d/%m/%Y")
 
