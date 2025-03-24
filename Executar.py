@@ -618,113 +618,79 @@ def executar_script():
 
     ###############################Checa a conclusão do AD###############################
 
-        if NoErrorPath():
-            time.sleep(45)
+        
+        time.sleep(45)
             #publicar
-            acao(1605,116,3)
+        acao(1605,116,3)
 
-            acao(1050, 573,2)
+        acao(1050, 573,2)
 
-            time.sleep(25)
+        time.sleep(25)
 
             #relatorios BI
-            acao(714, 495, 5)
+        acao(714, 495, 5)
 
             #selecinar
-            acao(1112,737,5)
+        acao(1112,737,5)
 
-            time.sleep(10)
+        time.sleep(10)
 
             #substituir
-            acao(1030,687,2)
+        acao(1030,687,2)
 
 
-            time.sleep(30)
+        time.sleep(30)
 
             #salvar
-            acao(1185,693,2)
+        acao(1185,693,2)
 
 
-            ####### Mostrar que o AD foi Publicado (Futuro IF -mesclar com DetectCondition) #######
+################### Caminho Sem Erro
                 #clica no Outlook
-            acao(144,1050,2)
+        acao(144,1050,2)
 
             #clica no novo
-            acao(166,131,2)
+        acao(166,131,2)
 
             #clica na barra
-            acao(429,218,2)
+        acao(429,218,2)
 
             #enter
-            time.sleep(3)
-            pyautogui.write("ti5166@sicoob.com.br")
-            pyautogui.press('enter')
-            time.sleep(2)
-            pyautogui.hotkey('space')
+        time.sleep(3)
+        pyautogui.write("ti5166@sicoob.com.br")
+        pyautogui.press('enter')
+        time.sleep(2)
+        pyautogui.hotkey('space')
 
-            time.sleep(3)
+        time.sleep(3)
 
-            pyautogui.write('gerentes5166@sicoob.com.br')
-            time.sleep(2)
-            pyautogui.press('enter')
+        pyautogui.write('gerentes5166@sicoob.com.br')
+        time.sleep(2)
+        pyautogui.press('enter')
 
             #clica em assunto
-            acao(550, 320, 2)
-            time.sleep(3)
-            pyautogui.write("Ad Publicado")
+        acao(550, 320, 2)
+        time.sleep(3)
+        pyautogui.write("Ad Publicado")
 
-            acao(454, 378, 2)
-            time.sleep(3)
-            pyperclip.copy(f"Confirmado, AD publicado às {hora} do dia {dataHoje}, sem erros registrados.")
-            pyautogui.hotkey('ctrl', 'v')
+        acao(454, 378, 2)
+        time.sleep(3)
+        pyperclip.copy(f"Confirmado, AD publicado às {hora} do dia {dataHoje}, sem erros registrados.")
+        pyautogui.hotkey('ctrl', 'v')
             #pyautogui.write("Sem Erro AutoMitigado")
 
-            acao(1781, 308, 2)
+        acao(1781, 308, 2)
 
-            acao(1745, 456, 2)
+        acao(1745, 456, 2)
 
-            acao(78, 296, 3)
+        acao(78, 296, 3)
 
-        else:
-            acao(144,1050,2)
+       
+        acao(144,1050,2)
 
-            #clica no novo
-            acao(166,131,2)
 
-            #clica na barra
-            acao(429,218,2)
 
-            #enter
-            time.sleep(3)
-            pyautogui.write("ti5166@sicoob.com.br")
-            pyautogui.press('enter')
-            time.sleep(2)
-            pyautogui.hotkey('space')
-
-            time.sleep(3)
-
-        # pyautogui.write('gerentes5166@sicoob.com.br')
-            time.sleep(2)
-            pyautogui.press('enter')
-
-            #clica em assunto
-            acao(550, 320, 2)
-            time.sleep(3)
-            pyautogui.write("AD Com Erro")
-
-            acao(454, 378, 2)
-            time.sleep(3)
-            #pyperclip.copy(f"Confirmado, AD publicado às {hora} do dia {dataHoje}, sem erros registrados.")
-            #pyautogui.hotkey('ctrl', 'v')
-            pyautogui.write("Erro")
-
-            acao(1781, 308, 2)
-
-            acao(1745, 456, 2)
-
-            acao(78, 296, 3)
-
-schedule.every().day.at("14:53").do(executar_script)
+schedule.every().day.at("08:05").do(executar_script)
 
 while True:
     schedule.run_pending()

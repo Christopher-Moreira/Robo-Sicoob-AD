@@ -30,3 +30,4 @@ def ErrorAtualizar_ADcsv():
         return True
     else:
         print("Nenhum erro Registrado - ErrorAtualizar_ADcsv")
+    
