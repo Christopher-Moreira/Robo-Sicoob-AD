@@ -685,12 +685,29 @@ def executar_script():
 
         acao(78, 296, 3)
 
-       
+        #Minimiza E-mail
         acao(144,1050,2)
 
+        #Fecha BI
+        acao(1890, 20, 3)
+
+        time.sleep(2)
+        #Clica no SISBR
+        acao(313, 1054 ,3)
+
+        time.sleep(2)
+        #Fecha Cobranca
+        acao(560, 844, 3)
+
+        time.sleep(2)
+        #fecha sisbr
+        acao(426, 834, 3)
+        
+        time.sleep(2)
+        acao(1060, 673, 3)
 
 
-schedule.every().day.at("08:05").do(executar_script)
+schedule.every().day.at("08:31").do(executar_script)
 
 while True:
     schedule.run_pending()
