@@ -647,8 +647,10 @@ def executar_script():
 
 ################### Caminho Sem Erro
                 #clica no Outlook
-        acao(144,1050,2)
 
+        acao(144,1050,2)
+        #espera o outlook abrir
+        time.sleep(45)
             #clica no novo
         acao(166,131,2)
 
@@ -657,14 +659,16 @@ def executar_script():
 
             #enter
         time.sleep(3)
-        pyautogui.write("ti5166@sicoob.com.br")
+        pyautogui.write("gerentes5166@sicoob.com.br")
         pyautogui.press('enter')
         time.sleep(2)
         pyautogui.hotkey('space')
 
         time.sleep(3)
+        pyautogui.hotkey('tab')
+        time.sleep(2)
 
-        pyautogui.write('gerentes5166@sicoob.com.br')
+        pyautogui.write('ti5166@sicoob.com.br')
         time.sleep(2)
         pyautogui.press('enter')
 
@@ -707,7 +711,7 @@ def executar_script():
         acao(1060, 673, 3)
 
 
-schedule.every().day.at("08:42").do(executar_script)
+schedule.every().day.at("08:13").do(executar_script)
 
 while True:
     schedule.run_pending()

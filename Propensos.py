@@ -30,6 +30,8 @@ pyautogui.hotkey('ctrl', 'v')
 time.sleep(1)
 pyautogui.hotkey('enter')
 
+time.sleep(20)
+
 #Clica em Login
 acao(937, 434, 2)
 
@@ -52,11 +54,13 @@ time.sleep(3)
 pyautogui.scroll(-1000)
 
 #Gera Relatorio
-acao(425, 433, 2)
+pyautogui.moveTo(416, 492)
+time.sleep(2)
+acao(416, 492, 2)
 time.sleep(10)
 
 #Executar como
-acao(529, 451, 2)
+acao(466, 494, 2)
 time.sleep(10)
 
 #Dados do Excel
@@ -64,7 +68,7 @@ acao(231, 742, 3)
 
 #Salva Relatório
 acao(1783, 915, 2)
-time.sleep(120)
+time.sleep(75)
 
 #acessa caminho
 pyperclip.copy('R:\T.I\Relatorios BI\Arquivos de Origem\Cota')
