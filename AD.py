@@ -328,9 +328,12 @@ def executar_script():
     time.sleep(5)
     if ErrorRename():
     
+
+        #Tira Print do Erro
         screenshot = pyautogui.screenshot()
         screenshot.save(path)
 
+        #Cria E-mail do Erro
         time.sleep(5)       
         acao(144,1050,2)
 
@@ -369,6 +372,7 @@ def executar_script():
         acao(1028,127,2)
         time.sleep(3)
         acao(1160,922,2)
+
 
         acao(549, 69, 2)
         pyperclip.copy('\Desktop\ScriptDias\Images\Screenshots')
@@ -423,6 +427,12 @@ def executar_script():
     ############### Erro Rename 2
     if ErrorRename():
             
+         #Tira Print do Erro
+        screenshot = pyautogui.screenshot()
+        screenshot.save(path)
+
+        #Cria E-mail do Erro
+        time.sleep(5)       
         acao(144,1050,2)
 
         #clica no novo
@@ -456,11 +466,28 @@ def executar_script():
         pyperclip.copy(f"File Already Exists: Erro durante a geração do AD:\n-O arquivo não pode ser renomeado porque já existe um arquivo com o mesmo nome.\n-File Path: R:\T.I\Relatorios BI\Arquivos de Origem\AD\CONSOLIDADO\n-File Name:'{dataHoje}'\n-{dataHoje} - {hora}.")
         pyautogui.hotkey('ctrl', 'v')
         
+        #anexa print
+        acao(1028,127,2)
+        time.sleep(3)
+        acao(1160,922,2)
+
+
+        acao(549, 69, 2)
+        pyperclip.copy('\Desktop\ScriptDias\Images\Screenshots')
+        pyautogui.hotkey('ctrl','v')
+        time.sleep(3)
+        acao(485, 270,2)
+        pyautogui.press('end')
+        time.sleep(3)
+        pyautogui.press('enter')
+
+        
         acao(1781, 308, 2)
 
         acao(1745, 456, 2)
 
         acao(78, 296, 3)
+
         
     else:
 
@@ -553,6 +580,12 @@ def executar_script():
     ################ Erro Rename 3
     if ErrorRename():
             
+        #Tira Print do Erro
+        screenshot = pyautogui.screenshot()
+        screenshot.save(path)
+
+        #Cria E-mail do Erro
+        time.sleep(5)       
         acao(144,1050,2)
 
         #clica no novo
@@ -586,11 +619,28 @@ def executar_script():
         pyperclip.copy(f"File Already Exists: Erro durante a geração do AD:\n-O arquivo não pode ser renomeado porque já existe um arquivo com o mesmo nome.\n-File Path: R:\T.I\Relatorios BI\Arquivos de Origem\Cobrança\n-File Name:'{dataHoje}'\n-{dataHoje} - {hora}.")
         pyautogui.hotkey('ctrl', 'v')
         
+        #anexa print
+        acao(1028,127,2)
+        time.sleep(3)
+        acao(1160,922,2)
+
+
+        acao(549, 69, 2)
+        pyperclip.copy('\Desktop\ScriptDias\Images\Screenshots')
+        pyautogui.hotkey('ctrl','v')
+        time.sleep(3)
+        acao(485, 270,2)
+        pyautogui.press('end')
+        time.sleep(3)
+        pyautogui.press('enter')
+
+        
         acao(1781, 308, 2)
 
         acao(1745, 456, 2)
 
-        acao(78, 296, 3)   
+        acao(78, 296, 3)
+
 
     else:
         #volta #relatorios BI
@@ -711,7 +761,7 @@ def executar_script():
         acao(1060, 673, 3)
 
 
-schedule.every().day.at("08:13").do(executar_script)
+schedule.every().day.at("08:12").do(executar_script)
 
 while True:
     schedule.run_pending()
